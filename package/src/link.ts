@@ -1,5 +1,5 @@
 export interface AstroTypedLinks
-  extends Record<string, Record<string, string> | never> {}
+  extends Record<string, Record<string, string | undefined> | never> {}
 
 type Prettify<T> = {
   [K in keyof T]: T[K];
@@ -27,7 +27,7 @@ export const link = <TPath extends keyof AstroTypedLinks>(
   let newPath = path as string;
   if (opts?.params) {
     for (const [key, value] of Object.entries(opts.params)) {
-      newPath = newPath.replace(`[${key}]`, value);
+      newPath = newPath.replace(`[${key}]`, value ?? "");
     }
   }
   if (opts?.searchParams) {
@@ -35,7 +35,7 @@ export const link = <TPath extends keyof AstroTypedLinks>(
       opts.searchParams instanceof URLSearchParams
         ? opts.searchParams
         : new URLSearchParams(opts.searchParams);
-    newPath += `?${searchParams}`;
+    newPath += `?${searchParams.toString()}`;
   }
   if (opts?.hash) {
     newPath += `#${opts.hash}`;
