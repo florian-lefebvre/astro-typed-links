@@ -1,11 +1,11 @@
 {
-	"name": "package-name",
+	"name": "astro-typed-links",
 	"version": "0.0.0",
-	"description": "TODO:",
+	"description": "An Astro integration to automatically get typed links to your pages.",
 	"author": {
-		"email": "TODO:",
-		"name": "TODO:",
-		"url": "TODO:"
+		"email": "contact@florian-lefebvre.dev",
+		"name": "Florian Lefebvre",
+		"url": "https://florian-lefebvre.dev"
 	},
 	"license": "MIT",
 	"keywords": [
@@ -13,9 +13,9 @@
 		"astro-component",
 		"withastro",
 		"astro",
-		"TODO:"
+		"optimization"
 	],
-	"homepage": "TODO:",
+	"homepage": "https://github.com/florian-lefebvre/astro-typed-links",
 	"publishConfig": {
 		"access": "public"
 	},

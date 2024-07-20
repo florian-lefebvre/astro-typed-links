@@ -14,7 +14,7 @@
 		"@astrojs/tailwind": "^5.1.0",
 		"astro": "^4.11.5",
 		"astro-integration-kit": "^0.14.0",
-		"package-name": "workspace:*",
+		"astro-typed-links": "workspace:*",
 		"tailwindcss": "^3.4.4"
 	},
 	"devDependencies": {

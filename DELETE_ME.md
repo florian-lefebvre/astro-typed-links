@@ -1,7 +1,7 @@
 ## Checklist
 
-- [ ] Update all `TODO:`
-- [ ] Update all `package-name` occurences
+- [x] Update all `TODO:`
+- [x] Update all `astro-typed-links` occurences
 - [ ] Add a LICENSE.md at the root
 - [ ] Have gh cli installed
 - [ ] Work on the integration logic

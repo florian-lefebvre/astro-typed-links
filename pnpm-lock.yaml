@@ -39,7 +39,7 @@ importers:
       astro-integration-kit:
         specifier: ^0.14.0
         version: 0.14.0(astro@4.11.5(@types/node@20.14.10)(typescript@5.5.3))
-      package-name:
+      astro-typed-links:
         specifier: workspace:*
         version: link:../package
       tailwindcss:
