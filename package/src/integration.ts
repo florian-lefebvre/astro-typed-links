@@ -4,7 +4,7 @@ import { existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const FILENAME = "./.astro/astro-types-routes.d.ts";
+const FILENAME = "./.astro/astro-typed-links.d.ts";
 
 const withTrailingSlash = (path: string) =>
   path.endsWith("/") ? path : `${path}/`;
