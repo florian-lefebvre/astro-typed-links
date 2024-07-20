@@ -5,6 +5,8 @@
 - [x] Add a LICENSE.md at the root
 - [x] Have gh cli installed
 - [ ] Work on the integration logic
+  - [ ] augmentation not working
+  - [ ] autompletion not working
 - [ ] Work on docs
   - [ ] JSDoc
   - [ ] Package README
