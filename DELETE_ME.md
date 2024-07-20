@@ -2,8 +2,8 @@
 
 - [x] Update all `TODO:`
 - [x] Update all `astro-typed-links` occurences
-- [ ] Add a LICENSE.md at the root
-- [ ] Have gh cli installed
+- [x] Add a LICENSE.md at the root
+- [x] Have gh cli installed
 - [ ] Work on the integration logic
 - [ ] Work on docs
   - [ ] JSDoc
