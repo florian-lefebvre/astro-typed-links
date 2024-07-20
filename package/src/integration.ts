@@ -16,8 +16,7 @@ export const integration = defineIntegration({
   name: "astro-typed-links",
   setup() {
     let typegenFilePath: URL;
-    let trailingSlash: AstroConfig["trailingSlash"];
-    let base: string;
+    let config: AstroConfig;
 
     return {
       hooks: {
@@ -53,9 +52,8 @@ export const integration = defineIntegration({
             return;
           }
         },
-        "astro:config:done": ({ config }) => {
-          trailingSlash = config.trailingSlash;
-          base = config.base;
+        "astro:config:done": (params) => {
+          config = params.config;
         },
         "astro:build:done": ({ routes }) => {
           if (!process.argv.includes("--sync")) {
@@ -64,6 +62,7 @@ export const integration = defineIntegration({
 
           const data: Array<{ route: string; params: Array<string> }> = [];
 
+          const { base, trailingSlash } = config;
           for (const { route: _route, params } of routes) {
             const route = `${withoutTrailingSlash(base)}${_route}`;
             if (trailingSlash === "always") {
