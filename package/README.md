@@ -73,6 +73,18 @@ export default defineConfig({
 }
 ```
 
+### `link` helper
+
+Import `link` from `astro-typed-links` and that's it!
+
+```ts
+import { link } from 'astro-typed-links'
+
+link('/')
+link('/blog/[slug]', { params: { slug: 'foo' }})
+link('/about', { searchParams: { foo: 'bar' }, hash: 'contact' })
+```
+
 ## Contributing
 
 This package is structured as a monorepo:
