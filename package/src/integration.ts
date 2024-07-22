@@ -1,8 +1,6 @@
-import type { AstroConfig } from "astro";
-import { defineIntegration } from "astro-integration-kit";
-import { existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
-import { dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import type { HookParameters } from "astro";
+import { addDts, defineIntegration } from "astro-integration-kit";
+import { existsSync, readFileSync } from "node:fs";
 
 const FILENAME = "./.astro/astro-typed-links.d.ts";
 
@@ -14,46 +12,50 @@ const withoutTrailingSlash = (path: string) =>
 
 export const integration = defineIntegration({
   name: "astro-typed-links",
-  setup() {
+  setup({ name }) {
+    let configSetupParams: HookParameters<"astro:config:setup">;
     let typegenFilePath: URL;
-    let config: AstroConfig;
 
     return {
       hooks: {
-        "astro:config:setup": ({ config, logger }) => {
-          typegenFilePath = new URL(FILENAME, config.root);
+        "astro:config:setup": (params) => {
+          configSetupParams = params;
+          typegenFilePath = new URL(FILENAME, params.config.root);
 
           try {
             const packageJson = JSON.parse(
-              readFileSync(new URL("./package.json", config.root), "utf-8")
+              readFileSync(
+                new URL("./package.json", params.config.root),
+                "utf-8"
+              )
             );
             if (!packageJson.scripts?.sync) {
-              logger.warn(
+              params.logger.warn(
                 'No "sync" script found in your "package.json". Add `"sync": "astro build --sync && astro sync"`'
               );
               return;
             }
 
             if (!packageJson.scripts.sync.includes("astro build --sync &&")) {
-              logger.warn(
+              params.logger.warn(
                 'The custom sync command for this integration is not added. Prepend your "package.json" "sync" script with "astro build --sync &&"'
               );
               return;
             }
           } catch (_) {
-            logger.error(`Failed to parse your "package.json"`);
+            params.logger.error(`Failed to parse your "package.json"`);
             return;
           }
 
           if (!existsSync(typegenFilePath)) {
-            logger.warn(
+            params.logger.warn(
               `"${FILENAME}" does not exist, make sure to execute the "sync" script of your "package.json"`
             );
             return;
           }
         },
         "astro:config:done": (params) => {
-          config = params.config;
+          configSetupParams.config = params.config;
         },
         "astro:build:done": ({ routes }) => {
           if (!process.argv.includes("--sync")) {
@@ -62,7 +64,7 @@ export const integration = defineIntegration({
 
           const data: Array<{ route: string; params: Array<string> }> = [];
 
-          const { base, trailingSlash } = config;
+          const { base, trailingSlash } = configSetupParams.config;
           for (const { route: _route, params } of routes) {
             const route = `${withoutTrailingSlash(base)}${_route}`;
             if (trailingSlash === "always") {
@@ -80,10 +82,10 @@ export const integration = defineIntegration({
 
           let types = "";
           for (const { route, params } of data) {
-            types += `		"${route}": ${
+            types += `"${route}": ${
               params.length === 0
                 ? "never"
-                : `{ ${params
+                : `{${params
                     .map(
                       (key) =>
                         `"${key}": ${
@@ -92,19 +94,15 @@ export const integration = defineIntegration({
                             : "string"
                         }`
                     )
-                    .join("; ")} }`
+                    .join("; ")}}`
             };\n`;
           }
-          const content = `
-declare module "astro-typed-links" {
-	interface AstroTypedLinks {
-${types}	}
-}`;
+          const content = `declare module "astro-typed-links" { interface AstroTypedLinks { ${types} }} export {}`;
 
-          mkdirSync(dirname(fileURLToPath(typegenFilePath)), {
-            recursive: true,
+          addDts(configSetupParams, {
+            name,
+            content,
           });
-          writeFileSync(typegenFilePath, content, "utf-8");
         },
       },
     };

@@ -3,13 +3,7 @@ import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 import { link } from "astro-typed-links";
 
-// declare module "astro-typed-links" {
-// 	interface AstroTypedLinks {
-// 		"/foo/[bar]": { "bar": string };
-// 		"/": never;
-// 		"/[...rest]": { "...rest": string | undefined };
-// 	}
-// }
+const a = link("/")
 
 const x = link("/foo/[bar]", { params: { bar: "ihaihgfaih" }})
 console.log({ x })

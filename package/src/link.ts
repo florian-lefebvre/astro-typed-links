@@ -1,5 +1,5 @@
-export interface AstroTypedLinks
-  extends Record<string, Record<string, string | undefined> | never> {}
+// biome-ignore lint/suspicious/noEmptyInterface: used for augmentation
+export interface AstroTypedLinks {}
 
 type Prettify<T> = {
   [K in keyof T]: T[K];
@@ -26,7 +26,9 @@ export const link = <TPath extends keyof AstroTypedLinks>(
 ) => {
   let newPath = path as string;
   if (opts?.params) {
-    for (const [key, value] of Object.entries(opts.params)) {
+    for (const [key, value] of Object.entries(
+      opts.params as Record<string, string | undefined>
+    )) {
       newPath = newPath.replace(`[${key}]`, value ?? "");
     }
   }
