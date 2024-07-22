@@ -2,45 +2,48 @@
 export interface AstroTypedLinks {}
 
 type Prettify<T> = {
-  [K in keyof T]: T[K];
+	[K in keyof T]: T[K];
 } & {};
 
 type Opts<T> = Prettify<
-  ([T] extends [never]
-    ? {
-        params?: never;
-      }
-    : {
-        params: T;
-      }) & {
-    searchParams?: Record<string, string> | URLSearchParams;
-    hash?: string;
-  }
+	([T] extends [never]
+		? {
+				params?: never;
+			}
+		: {
+				params: T;
+			}) & {
+		searchParams?: Record<string, string> | URLSearchParams;
+		hash?: string;
+	}
 >;
 
+/**
+ * Get type-safe links to your Astro routes. Make sure to run `astro sync` and follow instructions.
+ */
 export const link = <TPath extends keyof AstroTypedLinks>(
-  path: TPath,
-  ...[opts]: AstroTypedLinks[TPath] extends never
-    ? [opts?: Opts<AstroTypedLinks[TPath]>]
-    : [opts: Opts<AstroTypedLinks[TPath]>]
+	path: TPath,
+	...[opts]: AstroTypedLinks[TPath] extends never
+		? [opts?: Opts<AstroTypedLinks[TPath]>]
+		: [opts: Opts<AstroTypedLinks[TPath]>]
 ) => {
-  let newPath = path as string;
-  if (opts?.params) {
-    for (const [key, value] of Object.entries(
-      opts.params as Record<string, string | undefined>
-    )) {
-      newPath = newPath.replace(`[${key}]`, value ?? "");
-    }
-  }
-  if (opts?.searchParams) {
-    const searchParams =
-      opts.searchParams instanceof URLSearchParams
-        ? opts.searchParams
-        : new URLSearchParams(opts.searchParams);
-    newPath += `?${searchParams.toString()}`;
-  }
-  if (opts?.hash) {
-    newPath += `#${opts.hash}`;
-  }
-  return newPath;
+	let newPath = path as string;
+	if (opts?.params) {
+		for (const [key, value] of Object.entries(
+			opts.params as Record<string, string | undefined>,
+		)) {
+			newPath = newPath.replace(`[${key}]`, value ?? "");
+		}
+	}
+	if (opts?.searchParams) {
+		const searchParams =
+			opts.searchParams instanceof URLSearchParams
+				? opts.searchParams
+				: new URLSearchParams(opts.searchParams);
+		newPath += `?${searchParams.toString()}`;
+	}
+	if (opts?.hash) {
+		newPath += `#${opts.hash}`;
+	}
+	return newPath;
 };

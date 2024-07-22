@@ -1,12 +1,12 @@
 ---
+import { link } from "astro-typed-links";
 import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
-import { link } from "astro-typed-links";
 
-const a = link("/")
+const a = link("/");
 
-const x = link("/foo/[bar]", { params: { bar: "ihaihgfaih" }})
-console.log({ x })
+const x = link("/foo/[bar]", { params: { bar: "ihaihgfaih" } });
+console.log({ x });
 ---
 
 <Layout title="Welcome to Astro.">

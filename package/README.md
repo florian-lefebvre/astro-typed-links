@@ -6,7 +6,7 @@ This is an [Astro integration](https://docs.astro.build/en/guides/integrations-g
 
 ### Prerequisites
 
-TODO:
+- Requires Astro `>=4.12.0`
 
 ### Installation
 
@@ -43,18 +43,35 @@ yarn add astro-typed-links
 2. Add the integration to your astro config
 
 ```diff
-+import integration from "astro-typed-links";
++import typedLinks from "astro-typed-links";
 
 export default defineConfig({
   integrations: [
-+    integration(),
++    typedLinks(),
   ],
 });
 ```
 
-### Configuration
+3. Make sure you have a `sync` script inside your `package:json`
 
-TODO:configuration
+```json
+{
+  "scripts": {
+    "sync": "astro sync"
+  }
+}
+```
+
+4. Update the sync command
+
+```diff
+{
+  "scripts": {
+-    "sync": "astro sync"
++    "sync": "astro build --sync && astro sync"
+  }
+}
+```
 
 ## Contributing
 
