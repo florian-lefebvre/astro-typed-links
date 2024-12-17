@@ -6,7 +6,7 @@ This is an [Astro integration](https://docs.astro.build/en/guides/integrations-g
 
 ### Prerequisites
 
-- Requires Astro `>=4.12.0`
+- Requires Astro `>=5.0.0`
 
 ### Installation
 
@@ -50,27 +50,6 @@ export default defineConfig({
 +    typedLinks(),
   ],
 });
-```
-
-3. Make sure you have a `sync` script inside your `package:json`
-
-```json
-{
-  "scripts": {
-    "sync": "astro sync"
-  }
-}
-```
-
-4. Update the sync command
-
-```diff
-{
-  "scripts": {
--    "sync": "astro sync"
-+    "sync": "astro build --sync && astro sync"
-  }
-}
 ```
 
 ### `link` helper

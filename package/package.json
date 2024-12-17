@@ -26,19 +26,14 @@
 			"default": "./dist/index.js"
 		}
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"scripts": {
 		"dev": "tsup --watch",
 		"build": "tsup"
 	},
 	"type": "module",
 	"peerDependencies": {
-		"astro": "^4.12.0"
-	},
-	"dependencies": {
-		"astro-integration-kit": "^0.15.0"
+		"astro": "^5.0.0"
 	},
 	"devDependencies": {
 		"tsup": "^8.1.0"
