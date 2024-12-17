@@ -19,7 +19,7 @@ type Opts<T> = Prettify<
 >;
 
 /**
- * Get type-safe links to your Astro routes. Make sure to run `astro sync` and follow instructions.
+ * Get type-safe links to your Astro routes.
  */
 export const link = <TPath extends keyof AstroTypedLinks>(
 	path: TPath,
@@ -32,7 +32,9 @@ export const link = <TPath extends keyof AstroTypedLinks>(
 		for (const [key, value] of Object.entries(
 			opts.params as Record<string, string | undefined>,
 		)) {
-			newPath = newPath.replace(`[${key}]`, value ?? "");
+			newPath = newPath
+				.replace(`[${key}]`, value ?? "")
+				.replace(`[...${key}]`, value ?? "");
 		}
 	}
 	if (opts?.searchParams) {
