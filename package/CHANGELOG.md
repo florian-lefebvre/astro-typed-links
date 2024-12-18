@@ -1,5 +1,11 @@
 # astro-typed-links
 
+## 1.1.1
+
+### Patch Changes
+
+- 0cf982c: Fixes a case where atrailing slash would be incorrectly appended to endpoints patterns ending with file extensions
+
 ## 1.1.0
 
 ### Minor Changes
