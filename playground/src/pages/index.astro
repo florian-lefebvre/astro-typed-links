@@ -1,5 +1,5 @@
 ---
-import { link } from "astro-typed-links";
+import { link } from "astro-typed-links/link";
 import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 
@@ -18,6 +18,22 @@ console.log({ a, b, c, d: `${Astro.url.origin}${b}` });
 ---
 
 <Layout title="Welcome to Astro.">
+  <script>
+    import { link } from "astro-typed-links/link";
+
+    const a = link("/");
+    const b = link("/[...rest]", {
+      params: {
+        rest: "foo",
+      },
+      searchParams: {
+        bar: "baz",
+      },
+      hash: "header",
+    });
+    const c = link("/foo/[bar]", { params: { bar: "ihaihgfaih" } });
+    console.log({ a, b, c, d: `${Astro.url.origin}${b}` });
+  </script>
   <main>
     <svg
       class="astro-a"
