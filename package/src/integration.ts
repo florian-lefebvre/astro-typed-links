@@ -23,8 +23,7 @@ function getDtsContent(
 			continue;
 		}
 		const pattern = `${withoutTrailingSlash(base)}${route.pattern}`;
-		// biome-ignore lint/style/noNonNullAssertion: TODO: check why it's RoutePart[][]
-		const segments = route.segments.map((seg) => seg[0]!);
+		const segments = route.segments.flat();
 		const shouldApplyTrailingSlash =
 			// Page should alwyas respect the setting. It's trickier with endpoints
 			type === "page" ||

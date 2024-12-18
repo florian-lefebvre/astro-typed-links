@@ -22,7 +22,7 @@ console.log({ a, b, c, d: `${Astro.url.origin}${b}` });
     import { link } from "astro-typed-links/link";
 
     const a = link("/");
-    const b = link("/[...rest]", {
+    const b = link("/[...rest]/", {
       params: {
         rest: "foo",
       },
@@ -31,7 +31,7 @@ console.log({ a, b, c, d: `${Astro.url.origin}${b}` });
       },
       hash: "header",
     });
-    const c = link("/foo/[bar]", { params: { bar: "ihaihgfaih" } });
+    const c = link("/foo/[bar]/", { params: { bar: "ihaihgfaih" } });
     console.log({ a, b, c, d: `${Astro.url.origin}${b}` });
   </script>
   <main>
