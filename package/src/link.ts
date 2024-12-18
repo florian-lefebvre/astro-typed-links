@@ -1,5 +1,4 @@
-// biome-ignore lint/suspicious/noEmptyInterface: used for augmentation
-export interface AstroTypedLinks {}
+import type { AstroTypedLinks } from "./index.js";
 
 type Prettify<T> = {
 	[K in keyof T]: T[K];
