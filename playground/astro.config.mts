@@ -7,7 +7,7 @@ const { default: typedLinks } = await import("astro-typed-links");
 
 // https://astro.build/config
 export default defineConfig({
-	trailingSlash: "never",
+	trailingSlash: "always",
 	// base: "/docs",
 	integrations: [
 		tailwind(),

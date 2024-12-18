@@ -4,16 +4,16 @@ import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 
 const a = link("/");
-const b = link("/[...rest]", {
-  params: {
-    rest: "foo",
-  },
-  searchParams: {
-    bar: "baz",
-  },
-  hash: "header",
+const b = link("/[...rest]/", {
+	params: {
+		rest: "foo",
+	},
+	searchParams: {
+		bar: "baz",
+	},
+	hash: "header",
 });
-const c = link("/foo/[bar]", { params: { bar: "ihaihgfaih" } });
+const c = link("/foo/[bar]/", { params: { bar: "ihaihgfaih" } });
 console.log({ a, b, c, d: `${Astro.url.origin}${b}` });
 ---
 

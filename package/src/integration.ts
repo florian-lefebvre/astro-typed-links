@@ -15,26 +15,51 @@ function getDtsContent(
 	{ base, trailingSlash }: AstroConfig,
 	routes: Array<IntegrationResolvedRoute>,
 ) {
-	const data: Array<{ route: string; params: Array<string> }> = [];
+	const data: Array<{ pattern: string; params: Array<string> }> = [];
 
-	for (const { pattern, params } of routes) {
-		const route = `${withoutTrailingSlash(base)}${pattern}`;
+	for (const route of routes) {
+		const { params, type } = route;
+		if (!(type === "page" || type === "endpoint")) {
+			continue;
+		}
+		const pattern = `${withoutTrailingSlash(base)}${route.pattern}`;
+		// biome-ignore lint/style/noNonNullAssertion: TODO: check why it's RoutePart[][]
+		const segments = route.segments.map((seg) => seg[0]!);
+		const shouldApplyTrailingSlash =
+			// Page should alwyas respect the setting. It's trickier with endpoints
+			type === "page" ||
+			// No segments so it's probably an index route
+			segments.length === 0 ||
+			// If there are no static segments, we apply
+			segments.every((seg) => seg.dynamic) ||
+			// If the latest static segment has a dot, we don't apply the setting
+			// biome-ignore lint/style/noNonNullAssertion: checked earlier
+			!segments.findLast((seg) => !seg.dynamic)!.content.includes(".");
+
 		if (trailingSlash === "always") {
-			data.push({ route: withTrailingSlash(route), params });
+			data.push({
+				pattern: shouldApplyTrailingSlash
+					? withTrailingSlash(pattern)
+					: pattern,
+				params,
+			});
 		} else if (trailingSlash === "never") {
-			data.push({ route, params });
+			data.push({ pattern, params });
 		} else {
-			const r = withTrailingSlash(route);
-			data.push({ route, params });
-			if (route !== r) {
-				data.push({ route: r, params });
+			data.push({ pattern, params });
+			if (!shouldApplyTrailingSlash) {
+				continue;
+			}
+			const r = withTrailingSlash(pattern);
+			if (pattern !== r) {
+				data.push({ pattern: r, params });
 			}
 		}
 	}
 
 	let types = "";
-	for (const { route, params } of data) {
-		types += `    "${route}": ${
+	for (const { pattern, params } of data) {
+		types += `    "${pattern}": ${
 			params.length === 0
 				? "never"
 				: `{${params
