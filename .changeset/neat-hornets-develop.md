@@ -2,4 +2,4 @@
 "astro-typed-links": patch
 ---
 
-Fixes a case where trailingSlash would be incorrectly added to endpoints ending with file extensions
+Fixes a case where atrailing slash would be incorrectly appended to endpoints patterns ending with file extensions
