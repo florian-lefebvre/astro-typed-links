@@ -24,6 +24,10 @@
 		".": {
 			"types": "./dist/index.d.ts",
 			"default": "./dist/index.js"
+		},
+		"./link": {
+			"types": "./dist/link.d.ts",
+			"default": "./dist/link.js"
 		}
 	},
 	"files": [
