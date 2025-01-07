@@ -1,5 +1,22 @@
 # astro-typed-links
 
+## 1.1.2
+
+### Patch Changes
+
+- ebc9d41: Fixes a case where `searchParams` provided as an object would be encoded. The object is no longer used within a `URLSearchParams` instance.
+
+  ```js
+  // BEFORE
+  link("/", { searchParams: { foo: "{BAR}" } }); // /?foo=%7BTEST%7D
+
+  // AFTER
+  link("/", { searchParams: { foo: "{BAR}" } }); // /?foo={BAR}
+
+  // To match the old behavior
+  link("/", { searchParams: new URLSearchParams({ foo: "{BAR}" }) }); // /?foo=%7BTEST%7D
+  ```
+
 ## 1.1.1
 
 ### Patch Changes
