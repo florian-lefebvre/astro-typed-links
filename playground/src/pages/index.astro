@@ -14,7 +14,18 @@ const b = link("/[...rest]/", {
 	hash: "header",
 });
 const c = link("/foo/[bar]/", { params: { bar: "ihaihgfaih" } });
-console.log({ a, b, c, d: `${Astro.url.origin}${b}` });
+const d = `${Astro.url.origin}${b}`;
+const e = link("/", {
+	searchParams: {
+		foo: "{TEST}",
+	},
+});
+const f = link("/", {
+	searchParams: new URLSearchParams({
+		foo: "{TEST}",
+	}),
+});
+console.log({ a, b, c, d, e, f });
 ---
 
 <Layout title="Welcome to Astro.">
