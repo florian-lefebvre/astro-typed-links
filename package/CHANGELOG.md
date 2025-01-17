@@ -1,5 +1,11 @@
 # astro-typed-links
 
+## 1.1.3
+
+### Patch Changes
+
+- d8c028b: Fixes invalid urls when using trailing slash and providing `undefined` for a spread parameter
+
 ## 1.1.2
 
 ### Patch Changes
