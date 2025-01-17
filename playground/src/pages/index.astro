@@ -25,7 +25,8 @@ const f = link("/", {
 		foo: "{TEST}",
 	}),
 });
-console.log({ a, b, c, d, e, f });
+const g = link("/[...rest]/", { params: { rest: undefined } });
+console.log({ a, b, c, d, e, f, g });
 ---
 
 <Layout title="Welcome to Astro.">

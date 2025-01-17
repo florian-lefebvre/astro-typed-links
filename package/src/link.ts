@@ -35,6 +35,9 @@ export const link = <TPath extends keyof AstroTypedLinks>(
 				.replace(`[${key}]`, value ?? "")
 				.replace(`[...${key}]`, value ?? "");
 		}
+		// When using spread parameters with a trailing slash, it results in invalid //
+		// We clean that up
+		newPath = newPath.replace(/\/\//g, "/");
 	}
 	if (opts?.searchParams) {
 		if (opts.searchParams instanceof URLSearchParams) {
