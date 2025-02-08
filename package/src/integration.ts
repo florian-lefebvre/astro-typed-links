@@ -22,15 +22,14 @@ function getDtsContent(
 		if (!(type === "page" || type === "endpoint")) {
 			continue;
 		}
-		const pattern = `${withoutTrailingSlash(base)}${route.segments
-			.flat()
+		const segments = route.segments.flat();
+		const pattern = `${withoutTrailingSlash(base)}${segments
 			.map((segment) =>
 				segment.dynamic
 					? `[${segment.spread ? "..." : ""}${segment.content}]`
 					: segment.content,
 			)
 			.join("/")}`;
-		const segments = route.segments.flat();
 		const shouldApplyTrailingSlash =
 			// Page should alwyas respect the setting. It's trickier with endpoints
 			type === "page" ||
