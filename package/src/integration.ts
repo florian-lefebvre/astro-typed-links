@@ -23,6 +23,8 @@ function getDtsContent(
 			continue;
 		}
 		const segments = route.segments.flat();
+		// `route.pattern` cannot be used because it is lowercased by Astro
+		// so we have to rebuild the original path from its segments
 		const pattern = `${withoutTrailingSlash(base)}${segments
 			.map((segment) =>
 				segment.dynamic
