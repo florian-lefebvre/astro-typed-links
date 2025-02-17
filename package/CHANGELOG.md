@@ -1,5 +1,11 @@
 # astro-typed-links
 
+## 1.1.4
+
+### Patch Changes
+
+- 274ad5f: Fixes a case where links containing uppercase characters would be lowercased
+
 ## 1.1.3
 
 ### Patch Changes
