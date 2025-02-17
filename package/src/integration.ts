@@ -3,6 +3,7 @@ import type {
 	AstroConfig,
 	AstroIntegration,
 	IntegrationResolvedRoute,
+	RoutePart,
 } from "astro";
 
 const withTrailingSlash = (path: string) =>
@@ -10,6 +11,17 @@ const withTrailingSlash = (path: string) =>
 
 const withoutTrailingSlash = (path: string) =>
 	path.endsWith("/") ? path.slice(0, -1) : path;
+
+// https://github.com/withastro/astro/blob/main/packages/astro/src/core/routing/manifest/create.ts#L761-L767
+const joinSegments = (segments: RoutePart[][]): string => {
+	const arr = segments.map((segment) => {
+		return segment
+			.map((rp) => (rp.dynamic ? `[${rp.content}]` : rp.content))
+			.join("");
+	});
+
+	return `/${arr.join("/")}`;
+};
 
 function getDtsContent(
 	{ base, trailingSlash }: AstroConfig,
@@ -22,16 +34,12 @@ function getDtsContent(
 		if (!(type === "page" || type === "endpoint")) {
 			continue;
 		}
-		const segments = route.segments.flat();
 		// `route.pattern` cannot be used because it is lowercased by Astro so we have to rebuild the original path from its segments
-		// https://github.com/withastro/astro/blob/main/packages/astro/src/core/routing/manifest/create.ts#L761-L767
-		const pattern = `${withoutTrailingSlash(base)}${segments
-			.map((segment) =>
-				segment.dynamic
-					? `[${segment.spread ? "..." : ""}${segment.content}]`
-					: segment.content,
-			)
-			.join("/")}`;
+		const pattern = `${withoutTrailingSlash(base)}${joinSegments(
+			route.segments,
+		)}`;
+
+		const segments = route.segments.flat();
 		const shouldApplyTrailingSlash =
 			// Page should alwyas respect the setting. It's trickier with endpoints
 			type === "page" ||
