@@ -1,4 +1,5 @@
 ---
 "astro-typed-links": patch
 ---
-Fixes invalid urls when segments contain uppercase characters
+
+Fixes a case where links containing uppercase characters would be lowercased
