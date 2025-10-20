@@ -1,5 +1,11 @@
 # astro-typed-links
 
+## 1.1.5
+
+### Patch Changes
+
+- [#9](https://github.com/florian-lefebvre/astro-typed-links/pull/9) [`6b01ab1`](https://github.com/florian-lefebvre/astro-typed-links/commit/6b01ab19025eda90f5d5ed0541a9751c60b181f0) Thanks [@florian-lefebvre](https://github.com/florian-lefebvre)! - Bumps version, no code change
+
 ## 1.1.4
 
 ### Patch Changes
