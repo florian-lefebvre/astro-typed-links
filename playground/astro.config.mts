@@ -13,7 +13,7 @@ export default defineConfig({
 		tailwind(),
 		typedLinks(),
 		hmrIntegration({
-			directory: createResolver(import.meta.url).resolve("../package/dist"),
+			directory: createResolver(import.meta.url).resolve("../packages/astro-typed-links/dist"),
 		}),
 	],
 });
