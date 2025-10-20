@@ -2,23 +2,7 @@
 	"name": "astro-typed-links",
 	"version": "1.1.4",
 	"description": "An Astro integration to automatically get typed links to your pages.",
-	"author": {
-		"email": "contact@florian-lefebvre.dev",
-		"name": "Florian Lefebvre",
-		"url": "https://florian-lefebvre.dev"
-	},
-	"license": "MIT",
-	"keywords": [
-		"astro-integration",
-		"astro-component",
-		"withastro",
-		"astro",
-		"optimization"
-	],
-	"homepage": "https://github.com/florian-lefebvre/astro-typed-links",
-	"publishConfig": {
-		"access": "public"
-	},
+	"type": "module",
 	"sideEffects": false,
 	"exports": {
 		".": {
@@ -35,9 +19,24 @@
 	],
 	"scripts": {
 		"dev": "tsup --watch",
-		"build": "tsup"
+		"build": "tsup",
+		"prepublishOnly": "pnpm build"
 	},
-	"type": "module",
+	"keywords": [
+		"astro-integration",
+		"astro-component",
+		"withastro",
+		"astro",
+		"optimization"
+	],
+	"author": "florian-lefebvre",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/florian-lefebvre/astro-typed-links.git"
+	},
+	"bugs": "https://github.com/florian-lefebvre/astro-typed-links/issues",
+	"homepage": "https://github.com/florian-lefebvre/astro-typed-links#readme",
+	"license": "MIT",
 	"peerDependencies": {
 		"astro": "^5.0.0"
 	},

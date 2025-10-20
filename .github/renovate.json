@@ -1,19 +1,21 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": ["config:recommended"],
-	"dependencyDashboard": true,
-	"lockFileMaintenance": {
-		"enabled": true
-	},
+	"extends": [
+		"config:recommended",
+		":disableDependencyDashboard",
+		":disablePeerDependencies",
+		"schedule:weekly",
+		"helpers:pinGitHubActionDigestsToSemver",
+		"group:allNonMajor"
+	],
+	"rangeStrategy": "bump",
+	"ignorePaths": ["**/node_modules/**"],
+	"minimumReleaseAge": "3 days",
 	"postUpdateOptions": ["pnpmDedupe"],
 	"packageRules": [
 		{
-			"groupName": "all dependencies",
-			"groupSlug": "all",
-			"matchPackagePatterns": ["*"],
-			"schedule": ["before 4am on Monday"],
-			"rangeStrategy": "bump"
+			"groupName": "github-actions",
+			"matchManagers": ["github-actions"]
 		}
-	],
-	"ignoreDeps": ["node"]
+	]
 }
