@@ -22,7 +22,7 @@ importers:
     dependencies:
       astro:
         specifier: ^5.0.0
-        version: 5.16.3(@types/node@20.19.25)(jiti@1.21.7)(rollup@4.53.1)(typescript@5.9.3)(yaml@2.7.1)
+        version: 5.16.4(@types/node@20.19.25)(jiti@1.21.7)(rollup@4.53.1)(typescript@5.9.3)(yaml@2.7.1)
     devDependencies:
       tsup:
         specifier: ^8.5.1
@@ -32,13 +32,13 @@ importers:
     dependencies:
       '@astrojs/tailwind':
         specifier: ^5.1.5
-        version: 5.1.5(astro@5.16.3(@types/node@20.19.25)(jiti@1.21.7)(rollup@4.53.1)(typescript@5.9.3)(yaml@2.7.1))(tailwindcss@3.4.18(yaml@2.7.1))
+        version: 5.1.5(astro@5.16.4(@types/node@20.19.25)(jiti@1.21.7)(rollup@4.53.1)(typescript@5.9.3)(yaml@2.7.1))(tailwindcss@3.4.18(yaml@2.7.1))
       astro:
-        specifier: ^5.16.2
-        version: 5.16.3(@types/node@20.19.25)(jiti@1.21.7)(rollup@4.53.1)(typescript@5.9.3)(yaml@2.7.1)
+        specifier: ^5.16.4
+        version: 5.16.4(@types/node@20.19.25)(jiti@1.21.7)(rollup@4.53.1)(typescript@5.9.3)(yaml@2.7.1)
       astro-integration-kit:
         specifier: ^0.19.1
-        version: 0.19.1(astro@5.16.3(@types/node@20.19.25)(jiti@1.21.7)(rollup@4.53.1)(typescript@5.9.3)(yaml@2.7.1))
+        version: 0.19.1(astro@5.16.4(@types/node@20.19.25)(jiti@1.21.7)(rollup@4.53.1)(typescript@5.9.3)(yaml@2.7.1))
       astro-typed-links:
         specifier: workspace:*
         version: link:../packages/astro-typed-links
@@ -1048,8 +1048,8 @@ packages:
     peerDependencies:
       astro: ^4.14.0 || ^5.0.0
 
-  astro@5.16.3:
-    resolution: {integrity: sha512-KzDk41F9Dspf5fM/Ls4XZhV4/csjJcWBrlenbnp5V3NGwU1zEaJz/HIyrdKdf5yw+FgwCeD2+Yos1Xkx9gnI0A==}
+  astro@5.16.4:
+    resolution: {integrity: sha512-rgXI/8/tnO3Y9tfAaUyg/8beKhlIMltbiC8Q6jCoAfEidOyaue4KYKzbe0gJIb6qEdEaG3Kf3BY3EOSLkbWOLg==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2849,9 +2849,9 @@ snapshots:
     dependencies:
       prismjs: 1.30.0
 
-  '@astrojs/tailwind@5.1.5(astro@5.16.3(@types/node@20.19.25)(jiti@1.21.7)(rollup@4.53.1)(typescript@5.9.3)(yaml@2.7.1))(tailwindcss@3.4.18(yaml@2.7.1))':
+  '@astrojs/tailwind@5.1.5(astro@5.16.4(@types/node@20.19.25)(jiti@1.21.7)(rollup@4.53.1)(typescript@5.9.3)(yaml@2.7.1))(tailwindcss@3.4.18(yaml@2.7.1))':
     dependencies:
-      astro: 5.16.3(@types/node@20.19.25)(jiti@1.21.7)(rollup@4.53.1)(typescript@5.9.3)(yaml@2.7.1)
+      astro: 5.16.4(@types/node@20.19.25)(jiti@1.21.7)(rollup@4.53.1)(typescript@5.9.3)(yaml@2.7.1)
       autoprefixer: 10.4.20(postcss@8.5.6)
       postcss: 8.5.6
       postcss-load-config: 4.0.2(postcss@8.5.6)
@@ -3682,12 +3682,12 @@ snapshots:
 
   array-union@2.1.0: {}
 
-  astro-integration-kit@0.19.1(astro@5.16.3(@types/node@20.19.25)(jiti@1.21.7)(rollup@4.53.1)(typescript@5.9.3)(yaml@2.7.1)):
+  astro-integration-kit@0.19.1(astro@5.16.4(@types/node@20.19.25)(jiti@1.21.7)(rollup@4.53.1)(typescript@5.9.3)(yaml@2.7.1)):
     dependencies:
-      astro: 5.16.3(@types/node@20.19.25)(jiti@1.21.7)(rollup@4.53.1)(typescript@5.9.3)(yaml@2.7.1)
+      astro: 5.16.4(@types/node@20.19.25)(jiti@1.21.7)(rollup@4.53.1)(typescript@5.9.3)(yaml@2.7.1)
       pathe: 1.1.2
 
-  astro@5.16.3(@types/node@20.19.25)(jiti@1.21.7)(rollup@4.53.1)(typescript@5.9.3)(yaml@2.7.1):
+  astro@5.16.4(@types/node@20.19.25)(jiti@1.21.7)(rollup@4.53.1)(typescript@5.9.3)(yaml@2.7.1):
     dependencies:
       '@astrojs/compiler': 2.13.0
       '@astrojs/internal-helpers': 0.7.5
