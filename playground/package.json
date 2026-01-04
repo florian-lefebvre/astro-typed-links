@@ -11,7 +11,7 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/tailwind": "^5.1.5",
+		"@astrojs/tailwind": "^6.0.2",
 		"astro": "^5.16.6",
 		"astro-integration-kit": "^0.19.1",
 		"astro-typed-links": "workspace:*",
