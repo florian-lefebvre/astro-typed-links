@@ -43,17 +43,16 @@ export const link = <TPath extends keyof AstroTypedLinks>(
 		if (opts.searchParams instanceof URLSearchParams) {
 			newPath += `?${opts.searchParams.toString()}`;
 		} else {
-			// We need custom handling to avoid encoding
 			const entries = Object.entries(opts.searchParams);
 			for (let i = 0; i < entries.length; i++) {
 				// biome-ignore lint/style/noNonNullAssertion: we know the element exists for this index
 				const [key, value] = entries[i]!;
-				newPath += `${i === 0 ? "?" : "&"}${key}=${value}`;
+				newPath += `${i === 0 ? "?" : "&"}${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
 			}
 		}
 	}
 	if (opts?.hash) {
-		newPath += `#${opts.hash}`;
+		newPath += `#${encodeURIComponent(opts.hash)}`;
 	}
 	return newPath;
 };
