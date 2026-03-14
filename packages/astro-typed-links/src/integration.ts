@@ -1,4 +1,4 @@
-import { writeFileSync } from "node:fs";
+import { mkdirSync, writeFileSync } from "node:fs";
 import type {
 	AstroConfig,
 	AstroIntegration,
@@ -102,6 +102,7 @@ export function integration(): AstroIntegration {
 				routes = params.routes.filter((route) => route.origin !== "internal");
 				// In dev, this hook runs on route change
 				if (dtsURL) {
+					mkdirSync(new URL(".", dtsURL), { recursive: true });
 					writeFileSync(dtsURL, getDtsContent(config, routes));
 				}
 			},
@@ -109,7 +110,7 @@ export function integration(): AstroIntegration {
 				config = params.config;
 				dtsURL = params.injectTypes({
 					filename: "types.d.ts",
-					content: getDtsContent(config, routes),
+					content: routes ? getDtsContent(config, routes) : "",
 				});
 			},
 		},

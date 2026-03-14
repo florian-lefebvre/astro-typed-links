@@ -1,7 +1,7 @@
 {
 	"name": "playground",
 	"type": "module",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"private": true,
 	"scripts": {
 		"dev": "astro dev",
@@ -10,15 +10,16 @@
 		"preview": "astro preview",
 		"astro": "astro"
 	},
+	"packageManager": "pnpm@10.30.3",
 	"dependencies": {
 		"@astrojs/tailwind": "^6.0.2",
-		"astro": "^5.18.0",
-		"astro-integration-kit": "^0.19.1",
+		"astro": "^6.0.4",
+		"astro-integration-kit": "^0.20.0",
 		"astro-typed-links": "workspace:*",
 		"tailwindcss": "^3.4.19"
 	},
 	"devDependencies": {
-		"@astrojs/check": "^0.9.6",
+		"@astrojs/check": "^0.9.7",
 		"@types/node": "^20.19.37",
 		"typescript": "^5.9.3"
 	}
