@@ -38,7 +38,7 @@
 	"homepage": "https://github.com/florian-lefebvre/astro-typed-links#readme",
 	"license": "MIT",
 	"peerDependencies": {
-		"astro": "^6.0.0"
+		"astro": "^5.0.0 || ^6.0.0"
 	},
 	"devDependencies": {
 		"tsup": "^8.5.1"
