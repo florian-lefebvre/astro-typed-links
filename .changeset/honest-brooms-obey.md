@@ -2,4 +2,4 @@
 "astro-typed-links": patch
 ---
 
-Performance optimization for newPath regex, use single regex replace
+Improves performance when linking to routes with dynamic parameters
