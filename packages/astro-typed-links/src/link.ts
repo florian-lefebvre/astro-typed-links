@@ -47,7 +47,7 @@ export const link = <TPath extends keyof AstroTypedLinks>(
 			for (let i = 0; i < entries.length; i++) {
 				// biome-ignore lint/style/noNonNullAssertion: we know the element exists for this index
 				const [key, value] = entries[i]!;
-				newPath += `${i === 0 ? "?" : "&"}${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
+				newPath += `${i === 0 ? "?" : "&"}${key}=${value}`;
 			}
 		}
 	}
