@@ -54,7 +54,7 @@ export const link = <TPath extends keyof AstroTypedLinks>(
 		}
 	}
 	if (opts?.hash) {
-		newPath += `#${opts.hash}`;
+		newPath += `#${encodeURIComponent(opts.hash)}`;
 	}
 	return newPath;
 };
