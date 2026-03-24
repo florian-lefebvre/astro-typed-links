@@ -1,5 +1,17 @@
 # astro-typed-links
 
+## 1.2.0
+
+### Minor Changes
+
+- [#39](https://github.com/florian-lefebvre/astro-typed-links/pull/39) [`8246808`](https://github.com/florian-lefebvre/astro-typed-links/commit/82468087585f52ce9c78fb41b4e568ed8ff55837) Thanks [@devzom](https://github.com/devzom)! - Adds support for Astro 6.0
+
+### Patch Changes
+
+- [#42](https://github.com/florian-lefebvre/astro-typed-links/pull/42) [`1e31bab`](https://github.com/florian-lefebvre/astro-typed-links/commit/1e31babac4b628be4d54dc660a5af83cd113a353) Thanks [@devzom](https://github.com/devzom)! - Improves performance when linking to routes with dynamic parameters
+
+- [#40](https://github.com/florian-lefebvre/astro-typed-links/pull/40) [`e4aaa2b`](https://github.com/florian-lefebvre/astro-typed-links/commit/e4aaa2b83109ddc76e339f6caf908a7be86bfbd9) Thanks [@devzom](https://github.com/devzom)! - Fixes a case where a URL would not be valid because `hash` was not encoded
+
 ## 1.1.5
 
 ### Patch Changes
@@ -59,7 +71,6 @@
 ### Major Changes
 
 - 390f225: This update contains **breaking changes**.
-
   - Drops support for Astro 4.0 in favor of 5.0
   - Usage is simplified
   - Rest parameters must not be provided with the leading `...`
