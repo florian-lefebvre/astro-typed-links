@@ -1,5 +1,5 @@
 ---
-"astro-typed-links": minor
+"astro-typed-links": patch
 ---
 
-Improve handling of special characters and spaces in hash values by using `encodeURIComponent`.
+Fixes a case where a URL would not be valid because `hash` was not encoded
