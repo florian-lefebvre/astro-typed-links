@@ -10,10 +10,10 @@
 		"preview": "astro preview",
 		"astro": "astro"
 	},
-	"packageManager": "pnpm@10.33.0",
+	"packageManager": "pnpm@10.33.2",
 	"dependencies": {
 		"@astrojs/tailwind": "^6.0.2",
-		"astro": "^6.1.7",
+		"astro": "^6.1.9",
 		"astro-integration-kit": "^0.20.0",
 		"astro-typed-links": "workspace:*",
 		"tailwindcss": "^3.4.19"
