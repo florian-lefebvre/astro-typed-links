@@ -3,7 +3,7 @@
 	"private": true,
 	"packageManager": "pnpm@10.33.0",
 	"engines": {
-		"node": ">=18.20.8"
+		"node": ">=24.15.0"
 	},
 	"scripts": {
 		"package:dev": "pnpm --filter astro-typed-links dev",
