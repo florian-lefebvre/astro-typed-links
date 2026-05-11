@@ -1,5 +1,16 @@
 # astro-typed-links
 
+## 2.0.0
+
+### Major Changes
+
+- [`199017b`](https://github.com/florian-lefebvre/astro-typed-links/commit/199017bf2ea25358ae7b267efb0bc2e582fb1277) Thanks [@florian-lefebvre](https://github.com/florian-lefebvre)! - Removes deprecated `link` export from `astro-typed-links`. Use `astro-typed-links/link` instead:
+
+  ```diff
+  -import { link } from "astro-typed-links"
+  +import { link } from "astro-typed-links/link"
+  ```
+
 ## 1.2.0
 
 ### Minor Changes
