@@ -54,10 +54,10 @@ export default defineConfig({
 
 ### `link` helper
 
-Import `link` from `astro-typed-links` and that's it!
+Import `link` from `astro-typed-links/link` and that's it!
 
 ```ts
-import { link } from 'astro-typed-links'
+import { link } from 'astro-typed-links/link'
 
 link('/')
 link('/blog/[slug]', { params: { slug: 'foo' }})
