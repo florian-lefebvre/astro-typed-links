@@ -1,9 +1,25 @@
 {
-	"extends": "astro/tsconfigs/strictest",
 	"compilerOptions": {
-		"module": "Node16",
-		"moduleResolution": "Node16",
-		"jsx": "preserve"
+		"module": "node18",
+		"target": "esnext",
+		"types": [],
+		"sourceMap": false,
+		"declaration": true,
+		"declarationMap": false,
+		"noUncheckedIndexedAccess": true,
+		"exactOptionalPropertyTypes": true,
+		"noImplicitReturns": true,
+		"noImplicitOverride": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"strict": true,
+		"isolatedModules": true,
+		"noUncheckedSideEffectImports": true,
+		"erasableSyntaxOnly": true,
+		"skipLibCheck": true,
+		"outDir": "./dist",
+		"rootDir": "src",
+		"tsBuildInfoFile": "node_modules/.tmp/tsconfig.src.tsbuildinfo"
 	},
-	"exclude": ["dist"]
+	"include": ["src"]
 }
