@@ -10,7 +10,7 @@
 		"preview": "astro preview",
 		"astro": "astro"
 	},
-	"packageManager": "pnpm@10.33.4",
+	"packageManager": "pnpm@11.2.2",
 	"dependencies": {
 		"@astrojs/tailwind": "^6.0.2",
 		"astro": "^6.3.3",
