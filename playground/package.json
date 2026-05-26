@@ -13,7 +13,7 @@
 	"packageManager": "pnpm@11.2.2",
 	"dependencies": {
 		"@astrojs/tailwind": "^6.0.2",
-		"astro": "^6.3.3",
+		"astro": "^6.3.7",
 		"astro-integration-kit": "^0.20.0",
 		"astro-typed-links": "workspace:*",
 		"tailwindcss": "^3.4.19"
